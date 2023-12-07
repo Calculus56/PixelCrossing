@@ -1,0 +1,16 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1701859305
+ColorSlider.tscn::PackedScene::6879966627008699053::1701806484::0::1::::<><>::uid://bpjaffhel1b65::::res://Tres/HueGradient.tres<>res://HueGradient.cs
+HueGradient.cs::CSharpScript::-1::1701806604::0::1::::<><>::
+icon.svg::CompressedTexture2D::3930707109554124015::1701454890::1701454897::1::::<><>::
+::res://Main/::1701806466
+CharacterColorPicker.cs::CSharpScript::-1::1701792014::0::1::::<><>::
+CharacterCreater.tscn::PackedScene::5614477936319303922::1701806466::0::1::::<><>::res://Main/CharacterColorPicker.cs<>uid://daicrr21t62wj::::res://Sprites/AnimalCrossing Character.png
+Main.tscn::PackedScene::1846070649777456057::1701806466::0::1::::<><>::
+::res://Resources/::1701806474
+TestGradient.tres::Gradient::4463550143538964703::1701806474::0::1::::<><>::
+::res://Sprites/::1701694398
+AnimalCrossing Character.png::CompressedTexture2D::7175929801408331017::1701694398::1701694398::1::::<><>::
+AnimalCrossing Character_64.png::CompressedTexture2D::1124380880418544122::1701694339::1701694339::1::::<><>::
+::res://Tres/::1701806484
+HueGradient.tres::GradientTexture2D::3457841940647496448::1701806484::0::1::::<><>::uid://b4ugavwhiixkp::::res://Resources/TestGradient.tres

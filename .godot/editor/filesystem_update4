@@ -1,0 +1,9 @@
+res://ColorSlider.tscn
+res://Resources/TestGradient.tres
+res://Tres/HueGradient.tres
+res://Main/Main.tscn
+res://Main/CharacterCreater.tscn
+res://HueGradient.cs
+res://Main/CharacterColorPicker.cs
+res://Tres/Saturation.tres
+res://Resources/HueGradient.tres

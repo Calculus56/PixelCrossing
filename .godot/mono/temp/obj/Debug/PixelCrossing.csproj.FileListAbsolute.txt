@@ -1,0 +1,17 @@
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\bin\Debug\PixelCrossing.deps.json
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\bin\Debug\PixelCrossing.runtimeconfig.json
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\bin\Debug\PixelCrossing.dll
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\bin\Debug\PixelCrossing.pdb
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\bin\Debug\GodotSharp.dll
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\obj\Debug\PixelCrossing.csproj.AssemblyReference.cache
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\obj\Debug\PixelCrossing.GeneratedMSBuildEditorConfig.editorconfig
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\obj\Debug\PixelCrossing.AssemblyInfoInputs.cache
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\obj\Debug\PixelCrossing.AssemblyInfo.cs
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\obj\Debug\PixelCrossing.csproj.CoreCompileInputs.cache
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\obj\Debug\PixelCrossing.csproj.CopyComplete
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\obj\Debug\PixelCrossing.dll
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\obj\Debug\refint\PixelCrossing.dll
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\obj\Debug\PixelCrossing.pdb
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\obj\Debug\PixelCrossing.genruntimeconfig.cache
+D:\Godot\GitProjects\PixelCrossing\.godot\mono\temp\obj\Debug\ref\PixelCrossing.dll

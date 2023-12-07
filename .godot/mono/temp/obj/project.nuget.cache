@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "XMgccoHqSMUkI8mggVMW1m48p4+ltZSJfDFrzFt37xjhZYVgURABgnX1zYh+zl7Vcr/5wZVsnHBHPj0z9nrM8w==",
+  "success": true,
+  "projectFilePath": "D:\\Godot\\GitProjects\\PixelCrossing\\PixelCrossing.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ramos\\.nuget\\packages\\godot.sourcegenerators\\4.1.1\\godot.sourcegenerators.4.1.1.nupkg.sha512",
+    "C:\\Users\\ramos\\.nuget\\packages\\godotsharp\\4.1.1\\godotsharp.4.1.1.nupkg.sha512",
+    "C:\\Users\\ramos\\.nuget\\packages\\godotsharpeditor\\4.1.1\\godotsharpeditor.4.1.1.nupkg.sha512"
+  ],
+  "logs": []
+}
