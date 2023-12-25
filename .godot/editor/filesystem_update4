@@ -1,9 +1,12 @@
-res://ColorSlider.tscn
-res://Resources/TestGradient.tres
-res://Tres/HueGradient.tres
 res://Main/Main.tscn
+res://Tres/Focus.tres
+res://Main/ColorSwitcher.gdshader
 res://Main/CharacterCreater.tscn
+res://ColorSlider.tscn
+res://Scenes/Player.tscn
+res://GoBack.cs
 res://HueGradient.cs
 res://Main/CharacterColorPicker.cs
-res://Tres/Saturation.tres
-res://Resources/HueGradient.tres
+res://Main/CharacterCreater.cs
+res://Main/GrabFocus.cs
+res://Resources/ColorPreset.cs

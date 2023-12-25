@@ -1,16 +1,31 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1701859305
-ColorSlider.tscn::PackedScene::6879966627008699053::1701806484::0::1::::<><>::uid://bpjaffhel1b65::::res://Tres/HueGradient.tres<>res://HueGradient.cs
-HueGradient.cs::CSharpScript::-1::1701806604::0::1::::<><>::
+::res://::1703519873
+ColorSlider.tscn::PackedScene::6879966627008699053::1703519873::0::1::::<><>::res://GoBack.cs<>res://HueGradient.cs
+GoBack.cs::CSharpScript::-1::1702320521::0::1::::<><>::
+HueGradient.cs::CSharpScript::-1::1702331129::0::1::::<><>::
 icon.svg::CompressedTexture2D::3930707109554124015::1701454890::1701454897::1::::<><>::
-::res://Main/::1701806466
+::res://Main/::1703519873
 CharacterColorPicker.cs::CSharpScript::-1::1701792014::0::1::::<><>::
-CharacterCreater.tscn::PackedScene::5614477936319303922::1701806466::0::1::::<><>::res://Main/CharacterColorPicker.cs<>uid://daicrr21t62wj::::res://Sprites/AnimalCrossing Character.png
-Main.tscn::PackedScene::1846070649777456057::1701806466::0::1::::<><>::
-::res://Resources/::1701806474
-TestGradient.tres::Gradient::4463550143538964703::1701806474::0::1::::<><>::
-::res://Sprites/::1701694398
+CharacterCreater.cs::CSharpScript::-1::1702394693::0::1::::<><>::
+CharacterCreater.tscn::PackedScene::5614477936319303922::1703519873::0::1::::<><>::res://Main/CharacterCreater.cs<>uid://c5aybshn2oabl::::res://ColorSlider.tscn<>uid://daicrr21t62wj::::res://Sprites/AnimalCrossing Character.png<>res://Main/GrabFocus.cs<>uid://ct25k3vq4lnx4::::res://Sprites/CandyCane.png<>uid://7ggrwl6ripel::::res://Resources/Hair.tres<>uid://cumve3krm2cdi::::res://Tres/Focus.tres<>uid://bd362kaaxjp2g::::res://Resources/Eyes.tres<>uid://8k8bho1bxnc5::::res://Resources/Skin.tres
+ColorSwitcher.gdshader::Shader::-1::1703519873::0::1::::<><>::
+GrabFocus.cs::CSharpScript::-1::1703519653::0::1::::<><>::
+Main.tscn::PackedScene::1846070649777456057::1703519873::0::1::::<><>::uid://dbiacdturu2rp::::res://Scenes/Player.tscn
+::res://Resources/::1702333063
+ColorPreset.cs::CSharpScript::-1::1702320572::0::1::::ColorPreset<>Resource<>::
+Eyes.tres::Resource/Resource::2656720760196673680::1702326538::0::1::::<><>::res://Resources/ColorPreset.cs
+Hair.tres::Resource/Resource::2258825097332476479::1702324655::0::1::::<><>::res://Resources/ColorPreset.cs
+Notes.txt::TextFile::-1::1702333063::0::1::::<><>::
+Skin.tres::Resource/Resource::2338881454625153950::1702322209::0::1::::<><>::res://Resources/ColorPreset.cs
+::res://Scenes/::1703519873
+Player.tscn::PackedScene::7245969676191201965::1703519873::0::1::::<><>::uid://qawnhqox6yso::::res://Sprites/AnimalCrossing Character_64.png
+::res://Sprites/::1703520057
 AnimalCrossing Character.png::CompressedTexture2D::7175929801408331017::1701694398::1701694398::1::::<><>::
 AnimalCrossing Character_64.png::CompressedTexture2D::1124380880418544122::1701694339::1701694339::1::::<><>::
-::res://Tres/::1701806484
-HueGradient.tres::GradientTexture2D::3457841940647496448::1701806484::0::1::::<><>::uid://b4ugavwhiixkp::::res://Resources/TestGradient.tres
+CandyCane.png::CompressedTexture2D::6164008467451339719::1703515194::1703515194::1::::<><>::
+Tree.png::CompressedTexture2D::3708001239907695217::1703520057::1703520057::1::::<><>::
+::res://Tres/::1703518019
+Focus.tres::StyleBoxTexture::6202674460110632494::1703518019::0::1::::<><>::uid://ct25k3vq4lnx4::::res://Sprites/CandyCane.png
+HueTexture.tres::GradientTexture1D::2883158357549166499::1702329852::0::1::::<><>::
+SaturationTexture.tres::GradientTexture1D::4121924802621700768::1702329852::0::1::::<><>::
+ValueTexture.tres::GradientTexture1D::-1::1702329828::0::1::::<><>::

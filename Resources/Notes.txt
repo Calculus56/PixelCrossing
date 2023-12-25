@@ -1,0 +1,3 @@
+Instantiated scenes with gradients will save across all instantiated scenes.
+To solve this, you would have to instantiate your own gradient when the
+scene tree is ready.

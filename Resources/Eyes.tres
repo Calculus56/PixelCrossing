@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ColorPreset" load_steps=2 format=3 uid="uid://bd362kaaxjp2g"]
+
+[ext_resource type="Script" path="res://Resources/ColorPreset.cs" id="1_3y60e"]
+
+[resource]
+script = ExtResource("1_3y60e")
+color = Color(0.388235, 0.603922, 0.996078, 1)

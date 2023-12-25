@@ -1,9 +1,129 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl8xvp2viish3"]
+[gd_scene load_steps=24 format=3 uid="uid://cl8xvp2viish3"]
 
-[ext_resource type="Script" path="res://Main/CharacterColorPicker.cs" id="1_181r8"]
+[ext_resource type="Script" path="res://Main/CharacterCreater.cs" id="1_cl2ya"]
+[ext_resource type="PackedScene" uid="uid://c5aybshn2oabl" path="res://ColorSlider.tscn" id="1_l3ig6"]
 [ext_resource type="Texture2D" uid="uid://daicrr21t62wj" path="res://Sprites/AnimalCrossing Character.png" id="1_yq8wq"]
+[ext_resource type="Texture2D" uid="uid://bs3gid55xngjp" path="res://Sprites/Tree.png" id="2_i2yyg"]
+[ext_resource type="Script" path="res://Main/GrabFocus.cs" id="2_m0vnp"]
+[ext_resource type="Texture2D" uid="uid://ct25k3vq4lnx4" path="res://Sprites/CandyCane.png" id="2_qm4c2"]
+[ext_resource type="Resource" uid="uid://7ggrwl6ripel" path="res://Resources/Hair.tres" id="3_w01ck"]
+[ext_resource type="StyleBox" uid="uid://cumve3krm2cdi" path="res://Tres/Focus.tres" id="5_8ffqt"]
+[ext_resource type="Resource" uid="uid://bd362kaaxjp2g" path="res://Resources/Eyes.tres" id="5_xw4a0"]
+[ext_resource type="Resource" uid="uid://8k8bho1bxnc5" path="res://Resources/Skin.tres" id="6_ro11i"]
 
-[node name="CharacterCreator" type="CanvasLayer"]
+[sub_resource type="Curve" id="Curve_x5ehv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12234, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_nxdrm"]
+curve = SubResource("Curve_x5ehv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uqe1f"]
+emission_shape = 3
+emission_box_extents = Vector3(500, 250, 0)
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_curve = SubResource("CurveTexture_nxdrm")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qbbvq"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ts1p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_csai0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bgq5w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8tis8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5cwj6"]
+
+[sub_resource type="Shader" id="Shader_m4qde"]
+code = "shader_type canvas_item;
+// Old Colors
+uniform vec4 HairColor : source_color;
+uniform vec4 BackHairColor : source_color;
+uniform vec4 SkinColor : source_color;
+uniform vec4 BackSkinColor : source_color;
+uniform vec4 EyeColor : source_color;
+// New Colors
+uniform vec4 NewHairColor : source_color;
+uniform vec4 NewSkinColor : source_color;
+uniform vec4 NewEyeColor : source_color;
+
+void fragment(){
+	vec4 curr_color = texture(TEXTURE, UV);
+	
+	vec4 HairDifference = HairColor - BackHairColor;
+	vec4 SkinDifference = SkinColor - BackSkinColor;
+	// Floating point makes the colors not exactly the same.
+	if(distance(curr_color, HairColor) < 0.1){
+		COLOR = NewHairColor;
+	}
+	else if(distance(curr_color, BackHairColor) < 0.1){
+		COLOR = NewHairColor - HairDifference;
+	}
+	else if(distance(curr_color, SkinColor) < 0.1){
+		COLOR = NewSkinColor;
+	}
+	else if(distance(curr_color, BackSkinColor) < 0.1){
+		COLOR = NewSkinColor - SkinDifference;
+	}
+	else if(distance(curr_color, EyeColor) < 0.1){
+		COLOR = NewEyeColor;
+	}
+	else{
+		COLOR = curr_color;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rautc"]
+shader = SubResource("Shader_m4qde")
+shader_parameter/HairColor = Color(0.4, 0.223529, 0.192157, 1)
+shader_parameter/BackHairColor = Color(0.27451, 0.145098, 0.12549, 1)
+shader_parameter/SkinColor = Color(0.929412, 0.760784, 0.6, 1)
+shader_parameter/BackSkinColor = Color(0.851563, 0.695313, 0.546875, 1)
+shader_parameter/EyeColor = Color(0.388235, 0.603922, 0.996078, 1)
+shader_parameter/NewHairColor = Color(0.4, 0.223529, 0.192157, 1)
+shader_parameter/NewSkinColor = Color(0.929412, 0.760784, 0.6, 1)
+shader_parameter/NewEyeColor = Color(0.388235, 0.603922, 0.996078, 1)
+
+[sub_resource type="Gradient" id="Gradient_72ejf"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0.211765, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yxyko"]
+gradient = SubResource("Gradient_72ejf")
+width = 1
+
+[node name="CharacterCreator" type="CanvasLayer" node_paths=PackedStringArray("texture", "Hair", "Eyes", "Skin")]
+script = ExtResource("1_cl2ya")
+texture = NodePath("TextureRect")
+Hair = NodePath("MarginContainer/HBoxContainer/Hair/ColorRect")
+Eyes = NodePath("MarginContainer/HBoxContainer/Eyes/ColorRect")
+Skin = NodePath("MarginContainer/HBoxContainer/Skin/ColorRect")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = -2
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_i2yyg")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = -1
+position = Vector2(565, 307)
+process_material = SubResource("ParticleProcessMaterial_uqe1f")
+texture = ExtResource("2_qm4c2")
+lifetime = 2.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -12,27 +132,175 @@ anchor_bottom = 1.0
 offset_right = -3.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(288, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 75
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Hair" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Hair"]
 layout_mode = 2
 text = "Hair"
 horizontal_alignment = 1
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="MarginContainer/VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/Hair"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-text = "Hair"
-color = Color(0.376471, 0.572549, 0.611765, 1)
-script = ExtResource("1_181r8")
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/Hair/ColorRect"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qbbvq")
+
+[node name="ColorSlider" parent="MarginContainer/HBoxContainer/Hair/ColorRect" node_paths=PackedStringArray("colorRect") instance=ExtResource("1_l3ig6")]
+visible = false
+layout_mode = 1
+offset_top = 55.0
+offset_bottom = 163.0
+focus_neighbor_right = NodePath("../../../Eyes/ColorRect/Button")
+preset_color = ExtResource("3_w01ck")
+colorRect = NodePath("..")
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Hair/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7ts1p")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_csai0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bgq5w")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8tis8")
+theme_override_styles/focus = ExtResource("5_8ffqt")
+script = ExtResource("2_m0vnp")
+
+[node name="Eyes" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Eyes"]
+layout_mode = 2
+text = "Eyes"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/Eyes"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/Eyes/ColorRect"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qbbvq")
+
+[node name="ColorSlider" parent="MarginContainer/HBoxContainer/Eyes/ColorRect" node_paths=PackedStringArray("colorRect") instance=ExtResource("1_l3ig6")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 80.0
+offset_right = 0.0
+offset_bottom = 138.0
+preset_color = ExtResource("5_xw4a0")
+colorRect = NodePath("..")
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Eyes/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7ts1p")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5cwj6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bgq5w")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8tis8")
+theme_override_styles/focus = ExtResource("5_8ffqt")
+script = ExtResource("2_m0vnp")
+
+[node name="Skin" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Skin"]
+layout_mode = 2
+text = "Skin"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/Skin"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer/Skin/ColorRect"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qbbvq")
+
+[node name="ColorSlider" parent="MarginContainer/HBoxContainer/Skin/ColorRect" node_paths=PackedStringArray("colorRect") instance=ExtResource("1_l3ig6")]
+visible = false
+layout_mode = 1
+offset_top = 55.0
+offset_bottom = 163.0
+preset_color = ExtResource("6_ro11i")
+colorRect = NodePath("..")
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/Skin/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7ts1p")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5cwj6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bgq5w")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8tis8")
+theme_override_styles/focus = ExtResource("5_8ffqt")
+script = ExtResource("2_m0vnp")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_rautc")
 offset_left = 65.0
 offset_top = 164.0
 offset_right = 289.0
 offset_bottom = 500.0
 texture = ExtResource("1_yq8wq")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_yxyko")

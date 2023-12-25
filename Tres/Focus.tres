@@ -1,0 +1,8 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cumve3krm2cdi"]
+
+[ext_resource type="Texture2D" uid="uid://ct25k3vq4lnx4" path="res://Sprites/CandyCane.png" id="1_klixf"]
+
+[resource]
+texture = ExtResource("1_klixf")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
